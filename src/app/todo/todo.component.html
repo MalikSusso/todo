@@ -1,0 +1,23 @@
+<h1> La liste des tâches à realiser</h1>
+<ul class="list-group" *ngFor = "let todo of todos , let i = index">
+
+  <li class="list-group-item">
+
+  <div [ngClass]="{ongoing:todo.status,done:!todo.status}">
+
+
+    <a [href]="todo.image">
+      <img [src]="todo.image" >
+    </a>
+
+    {{todo.toDoName}}
+
+    <button class="btn btn-primary"
+    [disabled]="todo.status" (click)="onChangeStatus(i)"> On Going</button>
+    <button class=" btn btn-danger"
+    [disabled]="!todo.status" (click)="onChangeStatus(i)" >Done</button>
+
+  </div>
+
+  </li>
+</ul>
